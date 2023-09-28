@@ -54,7 +54,7 @@ const login = async (req, res) => {
     console.timeEnd("login");
 
     // create access token
-    const token = jwt.sign({ id: userData.id }, "SECRET-KEY-I-PUT-MYSELF");
+    const token = jwt.sign({ id: userData.id }, process.env.JWT_SECRET_KEY);
 
     // compare password from body with database
     if (isMatch) {
